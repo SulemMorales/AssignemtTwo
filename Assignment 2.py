@@ -1,6 +1,7 @@
 # Sulem Morales - ISS 212 - Assignment 2
 # Resources referenced: Jenn Moody screenshot from assignment and assignment 2 walkthrough video
 # I have not coded in very long, apologies in advance
+# This is a comment to enhance the script.
 
 def read_log(file_path):
     # I hope this works 3rd times the charm! This should open and read the log file
