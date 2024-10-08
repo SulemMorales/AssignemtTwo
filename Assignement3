@@ -1,0 +1,59 @@
+#! C:\Program Files\Git\bin\sh.exe
+
+# Sulem Morales - ISS212 - Assignment 3
+# Resources: ISS212 Week 4 Assignment 3 Walkthrough video/document
+
+# 1. When the packet size is entered the script will output True if it meets the threshold.
+# It is displaying the use of conditional statements and basic comparison operators
+
+read -p "Enter the packet size in bytes: " packet_size
+if [ "$packet_size" -ge 100 ]; then
+  echo "True - Packet meets the treshold for analysis."
+else
+  echo "False - Packet is too small to analyze. "
+fi
+
+# 2. Block 2 protocol identification checks the users input for a protocol name and it compares it against specific strings.
+# It uses the logic that uses string comparison operators and multiple conditional branches
+
+read -p "Enter the protocol name: " protocol_name
+if [ "$protocol_name" == "Cyphersec" ]; then
+ 	echo "Yes - Cyphersec is the best protocol ever!"
+ elif [ "$protocol_name" == "cyphersec" ]; then
+ 	echo "No, I want a big Cyphersec!"
+ else
+ 	echo "Cyphersec! Not $protocol_name!"
+ fi
+
+# 3. This block calculates a data security tac based on the users data usage.
+# This section demonstrates arithmetic operations and conditional logic
+
+read -p "Enter your annual data usage in MB: " data_usage
+ if [ "$data_usage" -le 85528 ]; then
+ 	tax=$((data_usage * 18 / 100 - 556))
+ else
+ 	surplus=$((data_usage - 85528))
+ 	tax=$((14839 + surplus * 32 / 100))
+ fi
+ if [ "$tax" -lt 0 ]; then
+ 	tax=0
+ fi
+ echo "Your Data Security Tax is: $tax MB"
+
+# 4. This block states wether a given year falls under a patch year or a standard year.
+# It shows the use of modulo operations and complex conditional logic
+
+read -p "Enter the year to check the patch cycle: " year
+if [ "$year" -lt 2000 ]; then
+  echo "Not within the managed patch period."
+else
+  if (( year % 4 != 0 )); then
+    echo "Standard Year"
+  elif (( year % 100 != 0 )); then
+    echo "Patch Year"
+  elif (( year % 400 != 0 )); then
+    echo "Standard Year"
+  else
+      echo "Patch Year"
+  fi
+fi
